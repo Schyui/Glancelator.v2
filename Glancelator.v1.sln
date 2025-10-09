@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glancelator.v1", "Glancelator.v1\Glancelator.v1.csproj", "{F1D49C84-0E8F-469E-9DED-3A9F3ED76988}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1D49C84-0E8F-469E-9DED-3A9F3ED76988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D49C84-0E8F-469E-9DED-3A9F3ED76988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D49C84-0E8F-469E-9DED-3A9F3ED76988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D49C84-0E8F-469E-9DED-3A9F3ED76988}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08EC9672-E4FD-41CC-BD3B-26DA93898E86}
+	EndGlobalSection
+EndGlobal

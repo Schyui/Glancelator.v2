@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Glancelator.v1.ScreenshotScreen"
+             Title="ScreenshotScreen">
+
+    <ContentPage.Resources>
+        <Color x:Key="PrimaryBackground">#1E1E1E</Color>
+        <Color x:Key="MainTextColor">White</Color>
+        <Color x:Key="BottomBarColor">#B2B2B2</Color>
+        <Color x:Key="BottomBarTextColor">#418B41</Color>
+        <Color x:Key="PrimaryGreen">#418B41</Color>
+        <Color x:Key="DarkGreenButton">#021F02</Color>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*, Auto">
+
+        <Grid Grid.Row="0"
+              RowDefinitions="*, Auto"
+              ColumnDefinitions="*">
+
+            <Grid Grid.Row="0"
+                  Margin="30,10,20,0" 
+                  ColumnDefinitions="3*, 1*" 
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+
+                <WebView x:Name="MyWebView"
+                         Grid.Column="0"
+                         Source="https://www.google.com"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand"
+                         Margin="0,0,10,0"
+                         />
+
+                <Grid Grid.Column="1"
+                      RowDefinitions="Auto, *, Auto, Auto"
+                      Margin="20,0,0,0"
+                      VerticalOptions="FillAndExpand">
+
+                    <Label Grid.Row="0"
+                           Text="Translated Text"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource MainTextColor}"
+                           />
+
+                    <Frame x:Name="TranslatedTextFrame"
+                           Grid.Row="1"
+                           BorderColor="{StaticResource MainTextColor}"
+                           Padding="5"
+                           CornerRadius="0"
+                           BackgroundColor="White"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,5,0,5">
+                        <ScrollView>
+                            <Label x:Name="TranslatedTextLabel"
+                                   TextColor="Black"
+                                   />
+                        </ScrollView>
+                    </Frame>
+
+                    <Grid Grid.Row="2"
+                          ColumnDefinitions="*, *, *, *"
+                          ColumnSpacing="10"
+                          VerticalOptions="Start">
+
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="From:" TextColor="{StaticResource MainTextColor}" FontAttributes="Bold"/>
+                            <Picker x:Name="FromLanguagePicker" TextColor="CornflowerBlue" FontSize="13"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="5">
+                            <Label Text="To:" TextColor="{StaticResource MainTextColor}" FontAttributes="Bold"/>
+                            <Picker x:Name="ToLanguagePicker" TextColor="MediumSpringGreen" FontSize="13"/>
+                        </VerticalStackLayout>
+
+                        <Button x:Name="ManualScanButton" Grid.Column="2" Grid.ColumnSpan="2" 
+                                Text="Scan Manually"
+                                BackgroundColor="{StaticResource PrimaryGreen}"
+                                TextColor="{StaticResource MainTextColor}"
+                                Clicked="OnManualScanClicked" 
+                                VerticalOptions="End"
+                                CornerRadius="0"/>
+                    </Grid>
+
+                    <Grid Grid.Row="3"
+                          ColumnDefinitions="2*, 2*"
+                          ColumnSpacing="10"
+                          VerticalOptions="Start"
+                          Margin="0,10,0,0">
+
+                        <VerticalStackLayout Grid.Column="0" Spacing="5">
+                            <Label Text="Auto-Scan Interval:" TextColor="{StaticResource MainTextColor}" FontAttributes="Bold"/>
+                            <Picker x:Name="IntervalPicker" TextColor="White"/>
+                        </VerticalStackLayout>
+
+                        <Button x:Name="AutoScanToggleButton" Grid.Column="1"
+                                Text="Start Auto-Scan"
+                                TextColor="{StaticResource MainTextColor}"
+                                Clicked="OnAutoScanToggleClicked"
+                                VerticalOptions="End"
+                                BackgroundColor="{StaticResource PrimaryGreen}"
+                                CornerRadius="0"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1"
+                  RowDefinitions="Auto, Auto"
+                  ColumnDefinitions="*"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Start"
+                  Margin="0,10,0,0">
+
+                <!--<HorizontalStackLayout Grid.Row="0"
+                                       HorizontalOptions="Center"
+                                       Spacing="10">
+                    <Button x:Name="CaptureScreen"
+                            Text="Capture Screen"
+                            TextColor="{StaticResource MainTextColor}"
+                            BackgroundColor="{StaticResource PrimaryGreen}"
+                            Clicked="capture_Screen"
+                            CornerRadius="0"
+                            Padding="25, 0, 25, 0"
+                            WidthRequest="150"
+                            />
+                    <Button x:Name="LiveCapture"
+                            Text="Live-Capture"
+                            TextColor="{StaticResource MainTextColor}"
+                            BackgroundColor="{StaticResource PrimaryGreen}"
+                            Clicked="live_Capture"
+                            CornerRadius="0"
+                            Padding="25, 0, 25, 0"
+                            WidthRequest="150"
+                            />
+                </HorizontalStackLayout>-->
+
+                <Button x:Name="FileUpload"
+                        Grid.Row="1"
+                        Text="Upload File"
+                        TextColor="{StaticResource MainTextColor}"
+                        BackgroundColor="#616161"
+                        Clicked="upload_File"
+                        CornerRadius="0"
+                        WidthRequest="310"
+                        HorizontalOptions="Center"
+                        Margin="0,10,0,0"
+                        />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1"
+              BackgroundColor="{StaticResource BottomBarColor}"
+              Padding="10, 15"
+              VerticalOptions="End"
+              ColumnDefinitions="*, 1.5*, *"
+              Margin="0,30,0,0">
+
+            <VerticalStackLayout Grid.Column="0"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <Image Source="settings_icon.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       />
+                <Label Text="Settings"
+                       TextColor="{StaticResource BottomBarTextColor}"
+                       />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <Image Source="screenshot_icon.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       />
+                <Label Text="Screenshot"
+                       TextColor="{StaticResource BottomBarTextColor}"
+                       />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                <Image Source="help_icon.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       />
+                <Label Text="Help"
+                       TextColor="{StaticResource BottomBarTextColor}"
+                       />
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

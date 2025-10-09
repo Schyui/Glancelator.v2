@@ -1,0 +1,106 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Glancelator.v1.HomePage"
+             BackgroundColor="#1E1E1E">
+
+    <ContentPage.Resources>
+        <Color x:Key="PrimaryBackground">#1E1E1E</Color>
+        <Color x:Key="MainTextColor">White</Color>
+        <Color x:Key="BottomBarColor">#B2B2B2</Color>
+        <Color x:Key="BottomBarTextColor">#418B41</Color>
+        <Color x:Key="PrimaryGreen">#418B41</Color>
+        <Color x:Key="DarkGreenButton">#021F02</Color>
+    </ContentPage.Resources>
+
+    <Grid RowDefinitions="*, Auto">
+        
+        <VerticalStackLayout Spacing="0" 
+                             VerticalOptions="Start" 
+                             HorizontalOptions="Center">
+
+            <VerticalStackLayout Spacing="0" 
+                                 VerticalOptions="Start" 
+                                 HorizontalOptions="Center" 
+                                 Padding="0,10,0,150">
+
+                <Image Source="glancelator_logo.png"
+               HeightRequest="100"
+               WidthRequest="100"           
+               />
+
+                <Label Text="Welcome to Glancelator"
+               HorizontalTextAlignment="Center"
+               />
+                <Label Text="Easily capture and translate text from any screenshot with a single-click"
+               HorizontalTextAlignment="Center"
+               Padding="0,10,0,0"
+               />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="0" 
+                                 VerticalOptions="Center" 
+                                 HorizontalOptions="Center">
+
+                <Button x:Name="takeScreenshot"
+                Text="Take Screenshot"
+                TextColor="{StaticResource MainTextColor}"
+                BackgroundColor="{StaticResource PrimaryGreen}"
+                Clicked="Take_Screenshot"
+                CornerRadius="0"
+                Padding="25, 0, 25, 0"
+                />
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+        <Grid   Grid.Row="1"
+                BackgroundColor="{StaticResource BottomBarColor}"
+                Padding="10, 15"
+                VerticalOptions="End"
+                ColumnDefinitions="*, 1.5*, *">
+
+            <VerticalStackLayout Grid.Column="0"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 >
+                <Image Source="settings_icon.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       />
+                <Label Text="Settings"
+                       TextColor="{StaticResource BottomBarTextColor}"
+                       />
+
+            </VerticalStackLayout>
+            
+
+            <VerticalStackLayout Grid.Column="1"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 >
+                <Image Source="screenshot_icon.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       />
+                <Label Text="Screenshot"
+                       TextColor="{StaticResource BottomBarTextColor}"
+                       />
+
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="2"
+                                 HorizontalOptions="Center"
+                                 VerticalOptions="Center"
+                                 >
+                <Image Source="help_icon.png"
+                       HeightRequest="30"
+                       WidthRequest="30"
+                       />
+                <Label Text="Help"
+                       TextColor="{StaticResource BottomBarTextColor}"
+                       />
+
+            </VerticalStackLayout>
+        </Grid>
+    </Grid>
+    
+
+</ContentPage>
