@@ -62,9 +62,11 @@
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                                  >
-                <Image Source="settings_icon.png"
+                <ImageButton 
+                       Source="settings_icon.png"
                        HeightRequest="30"
                        WidthRequest="30"
+                       Clicked="OnSettingsClicked"                      
                        />
                 <Label Text="Settings"
                        TextColor="{StaticResource BottomBarTextColor}"
@@ -77,7 +79,7 @@
                                  HorizontalOptions="Center"
                                  VerticalOptions="Center"
                                  >
-                <Image Source="screenshot_icon.png"
+                <ImageButton Source="screenshot_icon.png"
                        HeightRequest="30"
                        WidthRequest="30"
                        />

@@ -18,11 +18,12 @@ namespace Glancelator.v1
             await Navigation.PushAsync(ScreenshotScreen);
         }
 
-        //// 🔹 Handle Settings click
-        //private async void OnSettingsClicked(object sender, EventArgs e)
-        //{
-        //    await OnTabClicked("Settings");
-        //}
+        private async void OnSettingsClicked(object sender, EventArgs e)
+        {
+            var SettingsPage = new Settings();
+            await Navigation.PushAsync(SettingsPage);
+        }
+        
 
         //// 🔹 Handle Screenshot click
         //private async void OnScreenshotClicked(object sender, EventArgs e)
@@ -36,27 +37,29 @@ namespace Glancelator.v1
         //    await OnTabClicked("Help");
         //}
 
+
         //// 🔹 Main logic for switching tabs
-        //private async Task OnTabClicked(string tab)
-        //{
-        //    // Reset all to normal state
-        //    await ResetAllTabs();
+        /* private async Task OnTabClicked(string tab)
+         {
+             // Reset all to normal state
+            // await ResetAllTabs();
 
-        //    switch (tab)
-        //    {
-        //        case "Settings":
-        //            await HighlightTab(SettingsIcon, SettingsLabel);
-        //            break;
+             switch (tab)
+             {
+                 case "Settings":
+                     await HighlightTab(SettingsIcon, SettingsLabel);
+                     await Shell.Current.GoToAsync(nameof(Settings));
+                     break;
 
-        //        case "Screenshot":
-        //            await HighlightTab(ScreenshotIcon, ScreenshotLabel, ScreenshotFrame);
-        //            break;
+                    /* case "Screenshot":
+                         await HighlightTab(ScreenshotIcon, ScreenshotLabel, ScreenshotFrame);
+                         break;
 
-        //        case "Help":
-        //            await HighlightTab(HelpIcon, HelpLabel);
-        //            break;
-        //    }
-        //}
+                     case "Help":
+                         await HighlightTab(HelpIcon, HelpLabel);
+                         break; 
+            }
+        } */
 
         //// 🔹 Visual highlight + zoom animation
         //private async Task HighlightTab(Image icon, Label label, Frame frame = null)
