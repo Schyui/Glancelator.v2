@@ -41,6 +41,16 @@ public partial class ScreenshotScreen : ContentPage
         IntervalPicker.ItemsSource = intervals;
         IntervalPicker.SelectedIndex = 1;
     }
+    private void OnSearchButtonClicked(object sender, EventArgs e)
+    {
+        string inputText = UrlEntry.Text?.Trim();
+        if (string.IsNullOrWhiteSpace(inputText)) { return; }
+        Uri uri;
+        if (inputText.StartsWith("http://") || inputText.StartsWith("https://")) { uri = new Uri(inputText); }
+        else if (inputText.Contains(".")) { uri = new Uri("https://" + inputText); }
+        else { uri = new Uri($"https://www.google.com/search?q={HttpUtility.UrlEncode(inputText)}"); }
+        MyWebView.Source = uri;
+    }
 
     private async void capture_Screen(object sender, EventArgs e)
 	{
