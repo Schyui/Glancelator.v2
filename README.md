@@ -1,1 +1,1 @@
-# PDFTranslator
+Live translator
