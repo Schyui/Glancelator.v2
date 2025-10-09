@@ -144,7 +144,7 @@ public partial class ScreenshotScreen : ContentPage
                     string text = page.GetText().Trim();
 
                     // Clear previous results
-                    //OriginalTextLabel.Text = "";
+                    OriginalTextLabel.Text = "";
                     TranslatedTextLabel.Text = "";
 
                     if (!string.IsNullOrWhiteSpace(text))
@@ -152,7 +152,7 @@ public partial class ScreenshotScreen : ContentPage
                         var toLanguage = ToLanguagePicker.SelectedItem.ToString();
 
                         // UPDATED: Use the new separated labels
-                        //OriginalTextLabel.Text = text;
+                        OriginalTextLabel.Text = text;
                         TranslatedTextLabel.Text = $"Translating to {toLanguage}...";
 
                         string translatedText = await TranslateTextAsync(text, toLanguage);
@@ -161,7 +161,7 @@ public partial class ScreenshotScreen : ContentPage
                     }
                     else
                     {
-                       // OriginalTextLabel.Text = "No text could be extracted from the WebView.";
+                       OriginalTextLabel.Text = "No text could be extracted from the WebView.";
                     }
                 }
             }
@@ -170,7 +170,7 @@ public partial class ScreenshotScreen : ContentPage
                 TranslatedTextLabel.Text = "Error: " + ex.Message;
             }
 #else
-            //OriginalTextLabel.Text = "This feature only works on Windows.";
+            OriginalTextLabel.Text = "This feature only works on Windows.";
 #endif
         }
     private async Task<string> TranslateTextAsync(string textToTranslate, string toLanguageName)
