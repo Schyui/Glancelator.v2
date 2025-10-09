@@ -34,18 +34,38 @@
                          />
 
                 <Grid Grid.Column="1"
-                      RowDefinitions="Auto, *, Auto, Auto"
+                      RowDefinitions="Auto, *, Auto, *, Auto, Auto"  
                       Margin="20,0,0,0"
                       VerticalOptions="FillAndExpand">
 
                     <Label Grid.Row="0"
+                           Text="Original Text"
+                           FontAttributes="Bold"
+                           TextColor="{StaticResource MainTextColor}"
+                           />
+
+                    <Frame x:Name="OriginalTextFrame"
+                           Grid.Row="1"
+                           BorderColor="{StaticResource MainTextColor}"
+                           Padding="5"
+                           CornerRadius="0"
+                           BackgroundColor="White"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,5,0,5">
+                        <ScrollView>
+                            <Label x:Name="OriginalTextLabel" TextColor="Black" />
+                        </ScrollView>
+                    </Frame>
+
+                    <Label Grid.Row="2"
                            Text="Translated Text"
                            FontAttributes="Bold"
                            TextColor="{StaticResource MainTextColor}"
                            />
 
                     <Frame x:Name="TranslatedTextFrame"
-                           Grid.Row="1"
+                           Grid.Row="3"
                            BorderColor="{StaticResource MainTextColor}"
                            Padding="5"
                            CornerRadius="0"
@@ -60,8 +80,8 @@
                         </ScrollView>
                     </Frame>
 
-                    <Grid Grid.Row="2"
-                          ColumnDefinitions="*, *, *, *"
+                    <Grid Grid.Row="4"
+                          ColumnDefinitions="*, *, 2*"
                           ColumnSpacing="10"
                           VerticalOptions="Start">
 
@@ -75,7 +95,7 @@
                             <Picker x:Name="ToLanguagePicker" TextColor="MediumSpringGreen" FontSize="13"/>
                         </VerticalStackLayout>
 
-                        <Button x:Name="ManualScanButton" Grid.Column="2" Grid.ColumnSpan="2" 
+                        <Button x:Name="ManualScanButton" Grid.Column="2" 
                                 Text="Scan Manually"
                                 BackgroundColor="{StaticResource PrimaryGreen}"
                                 TextColor="{StaticResource MainTextColor}"
@@ -84,7 +104,7 @@
                                 CornerRadius="0"/>
                     </Grid>
 
-                    <Grid Grid.Row="3"
+                    <Grid Grid.Row="5"
                           ColumnDefinitions="2*, 2*"
                           ColumnSpacing="10"
                           VerticalOptions="Start"
@@ -112,29 +132,6 @@
                   HorizontalOptions="Center"
                   VerticalOptions="Start"
                   Margin="0,10,0,0">
-
-                <!--<HorizontalStackLayout Grid.Row="0"
-                                       HorizontalOptions="Center"
-                                       Spacing="10">
-                    <Button x:Name="CaptureScreen"
-                            Text="Capture Screen"
-                            TextColor="{StaticResource MainTextColor}"
-                            BackgroundColor="{StaticResource PrimaryGreen}"
-                            Clicked="capture_Screen"
-                            CornerRadius="0"
-                            Padding="25, 0, 25, 0"
-                            WidthRequest="150"
-                            />
-                    <Button x:Name="LiveCapture"
-                            Text="Live-Capture"
-                            TextColor="{StaticResource MainTextColor}"
-                            BackgroundColor="{StaticResource PrimaryGreen}"
-                            Clicked="live_Capture"
-                            CornerRadius="0"
-                            Padding="25, 0, 25, 0"
-                            WidthRequest="150"
-                            />
-                </HorizontalStackLayout>-->
 
                 <Button x:Name="FileUpload"
                         Grid.Row="1"

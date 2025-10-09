@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Glancelator.v1.SettingsPage"
+             Title="SettingsPage">
+
+    <ContentPage.Resources>
+        <Color x:Key="PrimaryBackground">#1E1E1E</Color>
+        <Color x:Key="MainTextColor">White</Color>
+        <Color x:Key="BottomBarColor">#B2B2B2</Color>
+        <Color x:Key="BottomBarTextColor">#418B41</Color>
+        <Color x:Key="PrimaryGreen">#418B41</Color>
+        <Color x:Key="DarkGreenButton">#021F02</Color>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Padding="10" BackgroundColor="Black">
+
+        <HorizontalStackLayout BackgroundColor="{StaticResource BottomBarColor}" HorizontalOptions="Fill">
+            <ImageButton Source="return_icon.png"
+                         HeightRequest="18"
+                         WidthRequest="18"
+                         BackgroundColor="{StaticResource BottomBarColor}"
+                         />
+            <Label Text="Hello WOrld"
+                   HorizontalTextAlignment="End"
+                   HorizontalOptions="End"
+                   />
+        </HorizontalStackLayout>
+            <Label 
+            Text="Language"
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center"
+            BackgroundColor="ForestGreen"
+            Padding="5"/>
+
+
+            <Grid ColumnDefinitions="*, Auto, *" RowSpacing="10" Margin="0,10">
+                <Label Text="Default App Language"
+                   TextColor="Black"
+                   BackgroundColor="White"
+                   Padding="10"
+                   Grid.Column="0"
+                   Margin="450, 0, 70, 0"
+                   VerticalTextAlignment="Center"/>
+
+                <Picker x:Name="ChoosedLang"
+                    Grid.Column="2"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Margin="0, 0, 500, 0"
+                    WidthRequest="150" >
+                    <Picker.Items>
+                        <x:String>Option 1</x:String>
+                        <x:String>Option 2</x:String>
+                        <x:String>Option 3</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+
+            <Grid ColumnDefinitions="*, Auto, *" RowSpacing="10">
+                <Label Text="Default Translation"
+                   TextColor="Black"
+                   BackgroundColor="White"
+                   Padding="10"
+                   Grid.Column="0"
+                   Margin="450, 0, 70, 0"
+                   VerticalTextAlignment="Center"/>
+
+                <Picker x:Name="TranslatedLang"
+                    Grid.Column="2"
+                    TextColor="Black"
+                    BackgroundColor="White"
+                    Margin="0, 0, 500, 0"
+                    WidthRequest="150" >
+                    <Picker.Items>
+                        <x:String>Option 1</x:String>
+                        <x:String>Option 2</x:String>
+                        <x:String>Option 3</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Grid>
+
+
+            <Label 
+            Text="About"
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            BackgroundColor="ForestGreen"
+            Padding="5"
+            Margin="0,20,0,0"/>
+
+            <Label 
+            Text="GlanceLator is an application developed with passion by the collective minds of STI students. This application was designed for comfort and efficiency, ensuring the swift and accurate translation of texts without the need for unnecessary user inputs."
+            TextColor="White"
+            FontSize="25"
+            HorizontalTextAlignment="Center"
+            Padding="10"
+            LineBreakMode="WordWrap"/>
+
+            <Label 
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalTextAlignment="Center"
+            BackgroundColor="ForestGreen"
+            Padding="5"
+            Margin="0,20,0,0"/>
+
+            <VerticalStackLayout HeightRequest="300">
+
+            </VerticalStackLayout>
+
+
+            <Grid ColumnDefinitions="*,*,*" Padding="10" BackgroundColor="LightGray" VerticalOptions="EndAndExpand">
+                <Button Text="Settings"
+                    BackgroundColor="DarkGreen"
+                    TextColor="White"
+                    Grid.Column="0"/>
+
+                <Button Text="Screenshot"
+                    TextColor="Green"
+                    BackgroundColor="Transparent"
+                    Grid.Column="1"/>
+
+                <Button Text="Help"
+                    TextColor="Green"
+                    BackgroundColor="Transparent"
+                    Grid.Column="2"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ContentPage>
