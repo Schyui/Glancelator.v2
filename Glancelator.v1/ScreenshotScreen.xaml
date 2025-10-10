@@ -9,7 +9,7 @@
         <Color x:Key="MainTextColor">White</Color>
         <Color x:Key="BottomBarColor">#B2B2B2</Color>
         <Color x:Key="BottomBarTextColor">#418B41</Color>
-        <Color x:Key="PrimaryGreen">#418B41</Color>
+        <Color x:Key="PrimaryGreen">#4CAF50</Color>
         <Color x:Key="DarkGreenButton">#021F02</Color>
     </ContentPage.Resources>
 
@@ -33,40 +33,125 @@
                          Margin="0,0,10,0"
                          />
 
+
                 <Grid Grid.Column="1"
                       RowDefinitions="Auto, *, Auto, *, Auto, Auto"  
                       Margin="20,0,0,0"
                       VerticalOptions="FillAndExpand">
+    
+                    <Label Grid.Row="0" 
+                           Text="Original Text" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"/>
 
-                    <Label Grid.Row="0" Text="Original Text" FontAttributes="Bold" TextColor="{StaticResource MainTextColor}"/>
-                    <Frame x:Name="OriginalTextFrame" Grid.Row="1" BorderColor="{StaticResource MainTextColor}" Padding="5" CornerRadius="0" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,5,0,5">
-                        <ScrollView>
-                            <Label x:Name="OriginalTextLabel" TextColor="Black" />
-                        </ScrollView>
-                    </Frame>
-                    <Label Grid.Row="2" Text="Translated Text" FontAttributes="Bold" TextColor="{StaticResource MainTextColor}"/>
-                    <Frame x:Name="TranslatedTextFrame" Grid.Row="3" BorderColor="{StaticResource MainTextColor}" Padding="5" CornerRadius="0" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,5,0,5">
-                        <ScrollView>
-                            <Label x:Name="TranslatedTextLabel" TextColor="Black"/>
-                        </ScrollView>
-                    </Frame>
-                    <Grid Grid.Row="4" ColumnDefinitions="*, *, 2*" ColumnSpacing="10" VerticalOptions="Start">
-                        <VerticalStackLayout Grid.Column="0" Spacing="5">
-                            <Label Text="From:" TextColor="{StaticResource MainTextColor}" FontAttributes="Bold"/>
-                            <Picker x:Name="FromLanguagePicker" TextColor="CornflowerBlue" FontSize="13"/>
+                    <Border x:Name="OriginalTextBorder"
+                            Grid.Row="1"
+                            Stroke="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
+                            StrokeThickness="1"
+                            Padding="5"
+                            StrokeShape="RoundRectangle 4"
+                            BackgroundColor="White"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0,5,0,5">
+
+                        <!-- Editor is read-only so user can select/copy but not edit -->
+                        <Editor x:Name="OriginalTextLabel"
+                                IsReadOnly="True"
+                                AutoSize="TextChanges"
+                                TextColor="Black"
+                                BackgroundColor="Transparent"
+                                Keyboard="Text"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand" />
+                    </Border>
+
+                    <Label Grid.Row="2" 
+                           Text="Translated Text" 
+                           FontAttributes="Bold" 
+                           TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"/>
+
+                    <Border x:Name="TranslatedTextBorder"
+                            Grid.Row="3"
+                            Stroke="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
+                            StrokeThickness="1"
+                            Padding="5"
+                            StrokeShape="RoundRectangle 4"
+                            BackgroundColor="White"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand"
+                            Margin="0,5,0,5">
+
+                        <Editor x:Name="TranslatedTextLabel"
+                                IsReadOnly="True"
+                                AutoSize="TextChanges"
+                                TextColor="Black"
+                                BackgroundColor="Transparent"
+                                Keyboard="Text"
+                                VerticalOptions="FillAndExpand"
+                                HorizontalOptions="FillAndExpand" />
+                    </Border>
+
+
+
+                    <Grid Grid.Row="4" 
+                          ColumnDefinitions="*, *, 2*" 
+                          ColumnSpacing="10" 
+                          VerticalOptions="Start">
+
+                        <VerticalStackLayout Grid.Column="0" 
+                                             Spacing="5">
+                            <Label Text="From:" TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}" 
+                                   FontAttributes="Bold"/>
+                            <Picker x:Name="FromLanguagePicker" 
+                                    TextColor="DarkBlue" 
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryColorLight}, Dark={StaticResource MainTextColorDark}}" 
+                                    FontSize="13"/>
                         </VerticalStackLayout>
+                        
+                        
                         <VerticalStackLayout Grid.Column="1" Spacing="5">
-                            <Label Text="To:" TextColor="{StaticResource MainTextColor}" FontAttributes="Bold"/>
-                            <Picker x:Name="ToLanguagePicker" TextColor="MediumSpringGreen" FontSize="13"/>
+                            <Label Text="To:" TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}" 
+                                   FontAttributes="Bold"/>
+                            <Picker x:Name="ToLanguagePicker" 
+                                    TextColor="DarkGreen" 
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryColorLight}, Dark={StaticResource MainTextColorDark}}" 
+                                    FontSize="13"/>
                         </VerticalStackLayout>
-                        <Button x:Name="ManualScanButton" Grid.Column="2" Text="Scan Manually" BackgroundColor="{StaticResource PrimaryGreen}" TextColor="{StaticResource MainTextColor}" Clicked="OnManualScanClicked" VerticalOptions="End" CornerRadius="0"/>
+                        
+                        
+                        <Button x:Name="ManualScanButton" 
+                                Grid.Column="2" 
+                                Text="Scan Manually" 
+                                BackgroundColor="{StaticResource PrimaryGreen}" 
+                                TextColor="{StaticResource MainTextColor}" 
+                                Clicked="OnManualScanClicked" 
+                                VerticalOptions="End" 
+                                CornerRadius="0"/>
                     </Grid>
-                    <Grid Grid.Row="5" ColumnDefinitions="2*, 2*" ColumnSpacing="10" VerticalOptions="Start" Margin="0,10,0,0">
-                        <VerticalStackLayout Grid.Column="0" Spacing="5">
-                            <Label Text="Auto-Scan Interval:" TextColor="{StaticResource MainTextColor}" FontAttributes="Bold"/>
-                            <Picker x:Name="IntervalPicker" TextColor="White"/>
+                    
+                    
+                    <Grid Grid.Row="5" 
+                          ColumnDefinitions="2*, 2*" 
+                          ColumnSpacing="10" 
+                          VerticalOptions="Start" 
+                          Margin="0,10,0,0">
+                        
+                        <VerticalStackLayout Grid.Column="0" 
+                                             Spacing="5">
+                            <Label Text="Auto-Scan Interval:" 
+                                   TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"/>
+                            <Picker x:Name="IntervalPicker" TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource SecondaryTextColorDark}}" 
+                                    BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryColorLight}, Dark={StaticResource MainTextColorDark}}"/>
                         </VerticalStackLayout>
-                        <Button x:Name="AutoScanToggleButton" Grid.Column="1" Text="Start Auto-Scan" TextColor="{StaticResource MainTextColor}" Clicked="OnAutoScanToggleClicked" VerticalOptions="End" BackgroundColor="{StaticResource PrimaryGreen}" CornerRadius="0"/>
+                        
+                        <Button x:Name="AutoScanToggleButton" 
+                                Grid.Column="1" 
+                                Text="Start Auto-Scan" 
+                                TextColor="{StaticResource MainTextColor}" 
+                                Clicked="OnAutoScanToggleClicked" VerticalOptions="End" 
+                                BackgroundColor="{StaticResource PrimaryGreen}" 
+                                CornerRadius="0"/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -92,6 +177,7 @@
                 <Button Text="Go" 
                         Clicked="OnSearchButtonClicked"
                         WidthRequest="60"
+                        TextColor="{StaticResource MainTextColor}"
                         BackgroundColor="{StaticResource PrimaryGreen}"
                         CornerRadius="0"/>
 

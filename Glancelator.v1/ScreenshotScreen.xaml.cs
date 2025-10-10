@@ -180,7 +180,7 @@ public partial class ScreenshotScreen : ContentPage
                 TranslatedTextLabel.Text = "Error: " + ex.Message;
             }
 #else
-            OriginalTextLabel.Text = "This feature only works on Windows.";
+           OriginalTextLabel.Text = "This feature only works on Windows.";
 #endif
         }
     private async Task<string> TranslateTextAsync(string textToTranslate, string toLanguageName)
