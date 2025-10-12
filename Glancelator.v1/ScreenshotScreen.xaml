@@ -110,7 +110,7 @@
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="1"
+        <!--<Grid Grid.Row="1"
               BackgroundColor="{StaticResource BottomBarColor}"
               Padding="10, 15"
               VerticalOptions="End"
@@ -131,6 +131,6 @@
                 <Image Source="help_icon.png" HeightRequest="30" WidthRequest="30"/>
                 <Label Text="Help" TextColor="{StaticResource BottomBarTextColor}"/>
             </VerticalStackLayout>
-        </Grid>
+        </Grid>-->
     </Grid>
 </ContentPage>

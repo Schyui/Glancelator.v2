@@ -17,12 +17,12 @@ namespace Glancelator.v1
 
             await Navigation.PushAsync(ScreenshotScreen);
         }
-
+        /* 
         private async void OnSettingsClicked(object sender, EventArgs e)
         {
             var SettingsPage = new Settings();
             await Navigation.PushAsync(SettingsPage);
-        }
+        } */
         
 
         //// 🔹 Handle Screenshot click

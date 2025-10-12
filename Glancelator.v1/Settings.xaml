@@ -95,7 +95,7 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <Grid Grid.Row="1"
+        <!--<Grid Grid.Row="1"
               BackgroundColor="{StaticResource BottomBarColor}"
               Padding="10, 5"
               VerticalOptions="End"
@@ -139,7 +139,7 @@
                TextColor="{StaticResource BottomBarTextColor}"
                />
             </VerticalStackLayout>
-        </Grid>
+        </Grid>-->
 
     </Grid>
 </ContentPage>
