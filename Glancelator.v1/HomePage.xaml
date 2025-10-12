@@ -1,15 +1,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Glancelator.v1.HomePage"
-             BackgroundColor="#1E1E1E">
+             BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryColorLight}, Dark={StaticResource PrimaryBackgroundDark}}">
 
     <ContentPage.Resources>
-        <Color x:Key="PrimaryBackground">#1E1E1E</Color>
-        <Color x:Key="MainTextColor">White</Color>
         <Color x:Key="BottomBarColor">#B2B2B2</Color>
         <Color x:Key="BottomBarTextColor">#418B41</Color>
-        <Color x:Key="PrimaryGreen">#418B41</Color>
-        <Color x:Key="DarkGreenButton">#021F02</Color>
     </ContentPage.Resources>
 
     <Grid RowDefinitions="*, Auto">
@@ -24,16 +20,19 @@
                                  Padding="0,10,0,150">
 
                 <Image Source="glancelator_logo.png"
-               HeightRequest="100"
-               WidthRequest="100"           
+                       BackgroundColor="Transparent"
+                       HeightRequest="100"
+                       WidthRequest="100"           
                />
 
                 <Label Text="Welcome to Glancelator"
-               HorizontalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"
+                       TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                />
                 <Label Text="Easily capture and translate text from any screenshot with a single-click"
-               HorizontalTextAlignment="Center"
-               Padding="0,10,0,0"
+                       HorizontalTextAlignment="Center"
+                       Padding="0,10,0,0"
+                       TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                />
             </VerticalStackLayout>
 
@@ -43,8 +42,8 @@
 
                 <Button x:Name="takeScreenshot"
                 Text="Take Screenshot"
-                TextColor="{StaticResource MainTextColor}"
-                BackgroundColor="{StaticResource PrimaryGreen}"
+                TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColorLight}, Dark={StaticResource MainTextColorDark}}"
+                BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreenLight}, Dark={StaticResource PrimaryGreenLight}}"
                 Clicked="Take_Screenshot"
                 CornerRadius="0"
                 Padding="25, 0, 25, 0"
@@ -66,6 +65,7 @@
                        Source="settings_icon.png"
                        HeightRequest="30"
                        WidthRequest="30"
+                       BackgroundColor="Transparent"
                        Clicked="OnSettingsClicked"                      
                        />
                 <Label Text="Settings"
@@ -80,6 +80,7 @@
                                  VerticalOptions="Center"
                                  >
                 <ImageButton Source="screenshot_icon.png"
+                       BackgroundColor="Transparent"
                        HeightRequest="30"
                        WidthRequest="30"
                        />

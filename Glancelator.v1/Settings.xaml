@@ -3,17 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Glancelator.v1.Settings"
              Title="Settings"
-             BackgroundColor="{StaticResource PrimaryBackground}">
-
-    <ContentPage.Resources>
-        <Color x:Key="PrimaryBackground">#1E1E1E</Color>
-        <Color x:Key="MainTextColor">White</Color>
-        <Color x:Key="BottomBarColor">#B2B2B2</Color>
-        <Color x:Key="BottomBarTextColor">#418B41</Color>
-        <Color x:Key="PrimaryGreen">#418B41</Color>
-        <Color x:Key="DarkGreenButton">#021F02</Color>
-        <Color x:Key="HeaderGreen">#418B41</Color>
-    </ContentPage.Resources>
+             BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryBackgroundLight}, Dark={StaticResource PrimaryBackgroundDark}}">
 
     <Grid RowDefinitions="*, Auto">
 
@@ -21,67 +11,68 @@
             <VerticalStackLayout Spacing="20">
 
                 <Label Text="Language"
-                       TextColor="{StaticResource MainTextColor}"
+                       TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                        FontSize="20"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
-                       BackgroundColor="{StaticResource HeaderGreen}"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreenLight}, Dark={StaticResource PrimaryGreenDark}}"
                        Padding="5, 10"
                        VerticalOptions="Start"/>
 
 
                 <Grid ColumnDefinitions="Auto, *"
-                      BackgroundColor="{StaticResource BottomBarColor}"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryColorLight}, Dark={StaticResource SecondaryColorDark}}"
                       Padding="10"
                       Margin="300, 0, 300, 0">
 
                     <Label Text="Dark Mode"
                            Grid.Column="0"
                            VerticalTextAlignment="Center"
-                           TextColor="Black" /> 
+                           TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}" />
 
                     <Switch x:Name="DarkModeSwitch"
+                            Toggled="DarkModeSwitch_Toggled"
                             Grid.Column="1"
                             HorizontalOptions="End"
                             VerticalOptions="Center" />
                 </Grid>
 
                 <Grid ColumnDefinitions="Auto, *"
-                      BackgroundColor="{StaticResource BottomBarColor}"
+                      BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryColorLight}, Dark={StaticResource SecondaryColorDark}}"
                       Padding="10"
                       Margin="300, 0, 300, 0">
 
                     <Label Text="Show Original Text"
                            Grid.Column="0"
                            VerticalTextAlignment="Center"
-                           TextColor="Black" />
+                           TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}" />
 
-                    <Switch x:Name="ShowOriginalText"
+                    <Switch x:Name="ShowOriginalTextSwitch"
                             Grid.Column="1"
                             HorizontalOptions="End"
-                            VerticalOptions="Center" /> 
+                            VerticalOptions="Center" />
                 </Grid>
 
                 <Label Text="About"
-                       TextColor="{StaticResource MainTextColor}"
+                       TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                        FontSize="20"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
-                       BackgroundColor="{StaticResource HeaderGreen}"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreenLight}, Dark={StaticResource PrimaryGreenDark}}"
                        Padding="5, 10"
                        Margin="0,20,0,0"/>
 
                 <Label Text="GlanceLator is an application developed with passion by the collective minds of STI students. This application was designed for comfort and efficiency, ensuring the swift and accurate translation of texts without the need for unnecessary user-inputs."
-                       TextColor="{StaticResource MainTextColor}"
+                       TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                        FontSize="18"  HorizontalTextAlignment="Center"
                        Padding="10"
                        LineBreakMode="WordWrap"/>
 
-                <Label TextColor="{StaticResource MainTextColor}"
+                <Label TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                        FontSize="20"
                        FontAttributes="Bold"
                        HorizontalTextAlignment="Center"
-                       BackgroundColor="{StaticResource HeaderGreen}"
+                       BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreenLight}, Dark={StaticResource PrimaryGreenDark}}"
                        Padding="5, 10"
                        Margin="0,20,0,0"/>
 
@@ -95,51 +86,8 @@
             </VerticalStackLayout>
         </ScrollView>
 
-        <!--<Grid Grid.Row="1"
-              BackgroundColor="{StaticResource BottomBarColor}"
-              Padding="10, 5"
-              VerticalOptions="End"
-              ColumnDefinitions="*, 1.5*, *">   
 
-            <VerticalStackLayout Grid.Column="0"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center">
-                <ImageButton Source="settings_icon.png"
-                     HeightRequest="30"
-                     
-                     BackgroundColor="{StaticResource BottomBarColor}"
-                     WidthRequest="30"
-                     />
-                <Label Text="Settings"
-               TextColor="{StaticResource BottomBarTextColor}"
-               />
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="1"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center">
-                <ImageButton Source="screenshot_icon.png"
-                     HeightRequest="30"
-                     WidthRequest="30"
-                     />
-                <Label Text="Screenshot"
-               TextColor="{StaticResource BottomBarTextColor}"
-               />
-            </VerticalStackLayout>
-
-            <VerticalStackLayout Grid.Column="2"
-                         HorizontalOptions="Center"
-                         VerticalOptions="Center">
-                <ImageButton Source="help_icon.png"
-                     
-                     HeightRequest="30"
-                     WidthRequest="30"
-                     />
-                <Label Text="Help"
-               TextColor="{StaticResource BottomBarTextColor}"
-               />
-            </VerticalStackLayout>
-        </Grid>-->
+       
 
     </Grid>
 </ContentPage>
