@@ -16,10 +16,10 @@
         <Color x:Key="PrimaryGreen">#418B41</Color>
         <Color x:Key="DarkGreenButton">#021F02</Color>
     </TabbedPage.Resources>
-    <local:Settings Title="Settings" IconImageSource="settings_icon.png" />
     <local:HomePage Title="Home" IconImageSource="home_icon.png" />
-    <local:HomePage Title="Help" IconImageSource="help_icon.png" />
     <local:ScreenshotScreen Title="Screenshot" IconImageSource="screenshot_icon.png"/>
+    <local:Settings Title="Settings" IconImageSource="settings_icon.png" />
+    <local:HomePage Title="Help" IconImageSource="help_icon.png" />
 
 
 </TabbedPage>
