@@ -37,22 +37,6 @@
                             VerticalOptions="Center" />
                 </Grid>
 
-                <Grid ColumnDefinitions="Auto, *"
-                      BackgroundColor="{AppThemeBinding Light={StaticResource SecondaryColorLight}, Dark={StaticResource SecondaryColorDark}}"
-                      Padding="10"
-                      Margin="300, 0, 300, 0">
-
-                    <Label Text="Show Original Text"
-                           Grid.Column="0"
-                           VerticalTextAlignment="Center"
-                           TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}" />
-
-                    <Switch x:Name="ShowOriginalTextSwitch"
-                            Grid.Column="1"
-                            HorizontalOptions="End"
-                            VerticalOptions="Center" />
-                </Grid>
-
                 <Label Text="About"
                        TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                        FontSize="20"
