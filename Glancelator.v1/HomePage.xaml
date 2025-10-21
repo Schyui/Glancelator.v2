@@ -36,19 +36,7 @@
                />
             </VerticalStackLayout>
 
-            <VerticalStackLayout Spacing="0" 
-                                 VerticalOptions="Center" 
-                                 HorizontalOptions="Center">
-
-                <Button x:Name="takeScreenshot"
-                Text="Take Screenshot"
-                TextColor="{AppThemeBinding Light={StaticResource SecondaryTextColorLight}, Dark={StaticResource MainTextColorDark}}"
-                BackgroundColor="{AppThemeBinding Light={StaticResource PrimaryGreenLight}, Dark={StaticResource PrimaryGreenLight}}"
-                Clicked="Take_Screenshot"
-                CornerRadius="0"
-                Padding="25, 0, 25, 0"
-                />
-            </VerticalStackLayout>
+           
 
         </VerticalStackLayout>
         <!--<Grid   Grid.Row="1"

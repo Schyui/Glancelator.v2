@@ -10,7 +10,7 @@
         <ScrollView Grid.Row="0" Padding="10">
             <VerticalStackLayout Spacing="20">
 
-                <Label Text="Language"
+                <Label Text="Options"
                        TextColor="{AppThemeBinding Light={StaticResource MainTextColorLight}, Dark={StaticResource MainTextColorDark}}"
                        FontSize="20"
                        FontAttributes="Bold"

@@ -238,4 +238,81 @@ public partial class ScreenshotScreen : ContentPage
             default: return "eng";
         }
     }
+    private bool isAutoTranslateEnabled = false;
+
+    private void OnAutoTranslateToggled(object sender, ToggledEventArgs e)
+    {
+        isAutoTranslateEnabled = e.Value;
+
+        if (AutoTranslateLabel != null)
+            AutoTranslateLabel.Text = isAutoTranslateEnabled ? "Auto" : "Manual";
+
+        // Enable or disable the manual button based on mode
+        ManualTranslateButton.IsEnabled = !isAutoTranslateEnabled;
+    }
+
+    private async void OnOriginalTextChanged(object sender, Microsoft.Maui.Controls.TextChangedEventArgs e)
+    {
+        try
+        {
+            // Only trigger if auto-translate mode is ON
+            if (!isAutoTranslateEnabled)
+                return;
+
+            if (string.IsNullOrWhiteSpace(e.NewTextValue))
+            {
+                TranslatedTextLabel.Text = string.Empty;
+                return;
+            }
+
+            var toLanguage = ToLanguagePicker.SelectedItem?.ToString() ?? "English";
+            var originalText = e.NewTextValue.Trim();
+
+            TranslatedTextLabel.Text = $"Translating to {toLanguage}...";
+
+            string translatedText = await TranslateTextAsync(originalText, toLanguage);
+
+            TranslatedTextLabel.Text = translatedText;
+        }
+        catch (Exception ex)
+        {
+            TranslatedTextLabel.Text = $"Error: {ex.Message}";
+        }
+    }
+
+    private async void OnManualTranslateClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            // Manual translation when switch is OFF
+            if (isAutoTranslateEnabled)
+            {
+                TranslatedTextLabel.Text = "Switch to Manual mode to use this button.";
+                return;
+            }
+
+            string originalText = OriginalTextLabel.Text?.Trim();
+            if (string.IsNullOrWhiteSpace(originalText))
+            {
+                TranslatedTextLabel.Text = "Please enter text first.";
+                return;
+            }
+
+            var toLanguage = ToLanguagePicker.SelectedItem?.ToString() ?? "English";
+
+            TranslatedTextLabel.Text = $"Translating to {toLanguage}...";
+
+            string translatedText = await TranslateTextAsync(originalText, toLanguage);
+
+            TranslatedTextLabel.Text = translatedText;
+        }
+        catch (Exception ex)
+        {
+            TranslatedTextLabel.Text = $"Error: {ex.Message}";
+        }
+    }
+
+
+
+
 }

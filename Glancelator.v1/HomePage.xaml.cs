@@ -11,12 +11,7 @@ namespace Glancelator.v1
         {
             InitializeComponent();
         }
-        private async void Take_Screenshot(object sender, EventArgs e)
-        {
-            var ScreenshotScreen = new ScreenshotScreen();
-
-            await Navigation.PushAsync(ScreenshotScreen);
-        }
+        
         /* 
         private async void OnSettingsClicked(object sender, EventArgs e)
         {
